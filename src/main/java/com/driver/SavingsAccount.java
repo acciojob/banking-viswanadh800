@@ -1,24 +1,24 @@
 package com.driver;
 
 public class SavingsAccount extends BankAccount{
-    double rate;
-    double maxWithdrawalLimit;
+    private double rate;
+    private double maxWithdrawalLimit;
 
     public double getRate() {
         return rate;
     }
 
-    public void setRate(double rate) {
-        this.rate = rate;
-    }
+//    public void setRate(double rate) {
+//        this.rate = rate;
+//    }
 
     public double getMaxWithdrawalLimit() {
         return maxWithdrawalLimit;
     }
 
-    public void setMaxWithdrawalLimit(double maxWithdrawalLimit) {
-        this.maxWithdrawalLimit = maxWithdrawalLimit;
-    }
+//    public void setMaxWithdrawalLimit(double maxWithdrawalLimit) {
+//        this.maxWithdrawalLimit = maxWithdrawalLimit;
+//    }
 
     public SavingsAccount(String name, double balance, double maxWithdrawalLimit, double rate) {
         // minimum balance is 0 by default
@@ -32,12 +32,13 @@ public class SavingsAccount extends BankAccount{
         // 2. "Insufficient Balance" : If the amount exceeds balance
         if(amount>maxWithdrawalLimit)
             throw new Exception("Maximum Withdraw Limit Exceed");
-        super.withdraw(amount);
+        else
+            super.withdraw(amount);
     }
 
     public double getSimpleInterest(int years){
         // Return the final amount considering that bank gives simple interest on current amount
-        return (getBalance()*years*rate)/100;
+        return (getBalance()+(getBalance()*years*rate)/100);
     }
 
     public double getCompoundInterest(int times, int years){
