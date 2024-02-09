@@ -4,6 +4,19 @@ import java.util.HashMap;
 import java.util.PriorityQueue;
 
 public class CurrentAccount extends BankAccount{
+
+    class Pair implements Comparable<Pair>{
+        char c;
+        int freq;
+        Pair(char c,int freq){
+            this.c=c;
+            this.freq=freq;
+        }
+        @Override
+        public int compareTo(Pair b){
+            return b.freq-this.freq;
+        }
+    }
     String tradeLicenseId; //consists of Uppercase English characters only
 
     public String getTradeLicenseId() {
@@ -71,15 +84,4 @@ public class CurrentAccount extends BankAccount{
     }
 }
 
-class Pair implements Comparable<Pair>{
-    char c;
-    int freq;
-    Pair(char c,int freq){
-        this.c=c;
-        this.freq=freq;
-    }
-    @Override
-    public int compareTo(Pair b){
-        return b.freq-this.freq;
-    }
-}
+
